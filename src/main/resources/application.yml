@@ -1,0 +1,32 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:mryakar/configurations.git
+          username: mryakar
+          password: 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
+          clone-on-start: true
+      discovery:
+        enabled: true
+    service-registry:
+      auto-registration:
+        enabled: true
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+  client:
+    registry-fetch-interval-seconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    enabled: true
+    register-with-eureka: true
+
+
+
