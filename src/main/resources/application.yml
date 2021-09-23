@@ -8,12 +8,13 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:mryakar/configurations.git
+          uri: https://github.com/mryakar/configurations.git
           username: mryakar
           password: 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
           clone-on-start: true
       discovery:
         enabled: true
+        service-id: config-service
     service-registry:
       auto-registration:
         enabled: true
@@ -24,7 +25,7 @@ eureka:
   client:
     registry-fetch-interval-seconds: 5
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://eureka-service:8761/eureka}
     enabled: true
     register-with-eureka: true
 
